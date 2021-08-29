@@ -1,7 +1,7 @@
-import hashlib
-import sqlite3
+import hashlib #import library for the hash
+import sqlite3 #import library for database
 
-conn = sqlite3.connect('passwordmanager.db')
+conn = sqlite3.connect('passwordmanager.db') #connect to database
 c = conn.cursor()          
 
 
