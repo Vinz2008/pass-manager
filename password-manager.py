@@ -21,13 +21,15 @@ def add_password():
 	password_hash = hex_dig
 	c.execute('''INSERT INTO PASSWORD(name,url,hash) 
 	             VALUES (?,?,?)''',(name,url,password_hash))
+	conn.commit()
 def list_passwords():
-	print("not done yet")	
+	for row in c.execute('SELECT * FROM PASSWORD ORDER BY name'):
+		print(row)	
 def print_home():
 	print(" 1.list of passwords \n 2.add a password \n 3.modify a password \n 4.delete the cache")
 	user_input = int(input(" : "))
 	if user_input == 1:
-		print("not done yet")
+		list_passwords()
 	elif user_input == 2:
 		add_password()
 	elif user_input == 3:
@@ -35,3 +37,4 @@ def print_home():
 	elif user_input == 4:
 		print("not done yet")
 print_home()
+
