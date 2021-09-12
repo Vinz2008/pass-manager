@@ -6,12 +6,7 @@ c = conn.cursor()
 
 
 number_password = 0
-class password:
-	def __init__(self,name,url,password_hash,temp_password):
-		self.name = name
-		self.url = url
-		self.password_hash = password_hash
-		self.temp_password = temp_password
+
 def add_password():		
 	name = input("Give a name to this password : ")
 	url = input("What is the url for the password : ")
