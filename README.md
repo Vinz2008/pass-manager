@@ -21,7 +21,18 @@ Run the install python script which create the database :
 python3 install.py  
 ```
 
+Create in the folder a bash script named launch.sh :
+```
+touch launch.sh
+```
+
+And put in the file :
+```
+cd ~/.pass-manager
+python3 password-manager.py
+```
+
 Add this line in your shell config file (~/.bashrc for bash and ~/.zshrc for zsh) to create an alias.
 ```
-alias pass-manager="~/.pass-manager/password-manager.py"
+alias pass-manager="~/.pass-manager/launch.sh"
 ```
