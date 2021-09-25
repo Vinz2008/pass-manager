@@ -6,6 +6,8 @@ Pass-manager is a command-line application which can manage passwords written in
 - add passwords
 
 ## Installation
+
+### Create an alias
 Create a .pass-manager directory :
 ```
 mkdir ~/.pass-manager
