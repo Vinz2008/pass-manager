@@ -1,16 +1,21 @@
 import sqlite3 #import library for database
 conn = sqlite3.connect('passwordmanager.db') #connect to database
 c = conn.cursor()
-
 number_password = 0
 
 def add_password():		
 	name = input("Give a name to this password : ")
 	url = input("What is the url for the password : ")
-	password =  input("What is  the password : ")
-	c.execute('''INSERT INTO PASSWORD(name,url,password) 
-	             VALUES (?,?,?)''',(name,url,password))
-	conn.commit()
+	password = input("What is  the password : ")
+	c.execute('''INSERT INTO PASSWORD(name,url,password)VALUES (?,?,?)''',(name,url,password))
+    numberpass = c.execute('''SELECT * FROM NUMBERPASSWORD''')
+    for thing in numberpass:
+        print(thing)
+    thing = str(thing)
+    thing2 = thing[:-2]
+    thing3 = thing2[1:]
+    numberfinal = int(thing3)
+    conn.commit()
 def list_passwords():
 	#for row in c.execute('SELECT * FROM PASSWORD ORDER BY name'):
 		#print(row)

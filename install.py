@@ -8,6 +8,7 @@ c.execute('''CREATE TABLE PASSWORD
 c.execute('''CREATE TABLE NUMBERPASSWORD
              ([numberpassword] integer)''')
 
+c.execute('''INSERT INTO NUMBERPASSWORD(numberpassword) VALUES (0)   ''')
 conn.commit()
 
   
