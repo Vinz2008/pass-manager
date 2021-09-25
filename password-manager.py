@@ -12,8 +12,17 @@ def add_password():
 	             VALUES (?,?,?)''',(name,url,password))
 	conn.commit()
 def list_passwords():
-	for row in c.execute('SELECT * FROM PASSWORD ORDER BY name'):
-		print(row)	
+	#for row in c.execute('SELECT * FROM PASSWORD ORDER BY name'):
+		#print(row)
+    print('\nPasswords:')
+    data=c.execute('''SELECT * FROM PASSWORD''')
+    for column in data.description:
+        print(column[0], end = ",")
+    print()
+    data=c.execute('''SELECT * FROM PASSWORD''')
+    for row in data:
+        print(row)
+
 def print_home():
 	print(" 1.list of passwords \n 2.add a password \n 3.modify a password")
 	user_input = int(input(" : "))
