@@ -4,17 +4,20 @@ c = conn.cursor()
 number_password = 0
 
 def add_password():		
-	name = input("Give a name to this password : ")
-	url = input("What is the url for the password : ")
-	password = input("What is  the password : ")
-	c.execute('''INSERT INTO PASSWORD(name,url,password)VALUES (?,?,?)''',(name,url,password))
+    name = input("Give a name to this password : ")
+    url = input("What is the url for the password : ")
+    password = input("What is  the password : ")
+    c.execute('''INSERT INTO PASSWORD(name,url,password)VALUES (?,?,?)''',(name,url,password))
     numberpass = c.execute('''SELECT * FROM NUMBERPASSWORD''')
     for thing in numberpass:
-        print(thing)
+        thing = thing
+    
     thing = str(thing)
     thing2 = thing[:-2]
     thing3 = thing2[1:]
     numberfinal = int(thing3)
+    numberfinal = numberfinal + 1
+    c.execute('''INSERT INTO PASSWORD(numberpassword) VALUES (?)''',(numberfinal))
     conn.commit()
 def list_passwords():
 	#for row in c.execute('SELECT * FROM PASSWORD ORDER BY name'):
