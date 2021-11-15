@@ -1,14 +1,20 @@
 import sqlite3
 from tqdm import tqdm
 import time
-conn = sqlite3.connect('passwordmanager.db')
+import os
+directory = ".password"
+parent_dir = os.path.expanduser('~')
+path = os.path.join(parent_dir, directory)
+if os.path.isdir(path) == False:
+    os.mkdir(path)
+conn = sqlite3.connect(path + '/passwordmanager.db')
 c = conn.cursor()
 c.execute('''CREATE TABLE PASSWORD
              ([id] text,[name] text,[url] text, [password] text)''')
 c.execute('''CREATE TABLE NUMBERPASSWORD
-             ([numberpassword] integer)''')
+             ([numberpassword] integer, [id] text)''')
 
-c.execute('''INSERT INTO NUMBERPASSWORD(numberpassword) VALUES (0)   ''')
+c.execute('''INSERT INTO NUMBERPASSWORD(numberpassword, id) VALUES (0, "abc")   ''')
 conn.commit()
 
   
