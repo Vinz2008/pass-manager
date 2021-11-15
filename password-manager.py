@@ -12,7 +12,6 @@ def add_password():
     name = input("Give a name to this password : ")
     url = input("What is the url for the password : ")
     password = input("What is  the password : ")
-    c.execute('''INSERT INTO PASSWORD(name,url,password)VALUES (?,?,?)''',(name,url,password))
     numberpass = c.execute('''SELECT * FROM NUMBERPASSWORD''')
     for thing in numberpass:
         thing = thing
@@ -24,16 +23,11 @@ def add_password():
     thing5 = thing4[:-1]
     thing6 = thing5[:1]
     numberfinal = int(thing6)
-    name = input("Give a name to this password : ")
-    url = input("What is the url for the password : ")
-    password = input("What is  the password : ")
     id = numberfinal + 1
     c.execute('''INSERT INTO PASSWORD(id,name,url,password)VALUES (?,?,?,?)''',(id,name,url,password))
     numberpass = c.execute('''SELECT * FROM NUMBERPASSWORD''')
     c.execute('''UPDATE NUMBERPASSWORD SET numberpassword = ? WHERE id = "abc"''',(str(id)))
-    numberfinal = int(thing3)
     numberfinal = numberfinal + 1
-    c.execute('''INSERT INTO PASSWORD(numberpassword) VALUES (?)''',(numberfinal))
     conn.commit()
 def list_passwords():
 	#for row in c.execute('SELECT * FROM PASSWORD ORDER BY name'):
