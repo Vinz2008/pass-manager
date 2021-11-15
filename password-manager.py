@@ -8,13 +8,11 @@ c = conn.cursor()
 number_password = 0
 
 def add_password():		
-<<<<<<< HEAD
-=======
+
     name = input("Give a name to this password : ")
     url = input("What is the url for the password : ")
     password = input("What is  the password : ")
     c.execute('''INSERT INTO PASSWORD(name,url,password)VALUES (?,?,?)''',(name,url,password))
->>>>>>> 51e4cd53e2740566770f5ffe359fa0a02224d063
     numberpass = c.execute('''SELECT * FROM NUMBERPASSWORD''')
     for thing in numberpass:
         thing = thing
@@ -22,7 +20,6 @@ def add_password():
     thing = str(thing)
     thing2 = thing[:-2]
     thing3 = thing2[1:]
-<<<<<<< HEAD
     thing4 = thing3[:-2]
     thing5 = thing4[:-1]
     thing6 = thing5[:1]
@@ -34,11 +31,9 @@ def add_password():
     c.execute('''INSERT INTO PASSWORD(id,name,url,password)VALUES (?,?,?,?)''',(id,name,url,password))
     numberpass = c.execute('''SELECT * FROM NUMBERPASSWORD''')
     c.execute('''UPDATE NUMBERPASSWORD SET numberpassword = ? WHERE id = "abc"''',(str(id)))
-=======
     numberfinal = int(thing3)
     numberfinal = numberfinal + 1
     c.execute('''INSERT INTO PASSWORD(numberpassword) VALUES (?)''',(numberfinal))
->>>>>>> 51e4cd53e2740566770f5ffe359fa0a02224d063
     conn.commit()
 def list_passwords():
 	#for row in c.execute('SELECT * FROM PASSWORD ORDER BY name'):
