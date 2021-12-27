@@ -2,7 +2,6 @@ DESTDIR=/usr/bin
 install:
 	touch password-manager
 	python3 shebang.py
-	mkdir $(DESTDIR)/password-manager/
-	cp password-manager $(DESTDIR)/password-manager/
+	cp password-manager $(DESTDIR)/
 clean:
 	rm ~/.password/passwordmanager.db
