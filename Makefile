@@ -1,5 +1,8 @@
+DESTDIR=/usr/bin
 install:
-	cp password-manager.py password-manager
-	shebang="#!/usr/bin/python"
-	finalcontent=echo "$(shebang)" | cat - password-manager
-	echo $(finalcontent) > test
+	touch password-manager
+	python3 shebang.py
+	mkdir $(DESTDIR)/password-manager/
+	cp password-manager $(DESTDIR)/password-manager/
+clean:
+	rm ~/.password/passwordmanager.db
